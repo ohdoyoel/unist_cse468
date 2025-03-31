@@ -1,0 +1,34 @@
+Create a D3.js v7 data visualization based on a chocolate sales dataset. I want the following functionality:
+
+0. Dataset (chocolate_sales.csv)
+Sales Person,Country,Product,Date,Amount,Boxes Shipped
+Jehu Rudeforth,UK,Mint Chip Choco,04-Jan-22,"$5,320 ",180
+Van Tuxwell,India,85% Dark Bars,01-Aug-22,"$7,896 ",94
+
+1. Data Manipulation
+   - Load CSV data using `d3.csv()`
+   - Parse the date from the `Date` column (format: `%d-%b-%y`)
+   - Convert `Amount` to numeric values
+   - Create a new `Month` field in the format `YYYY-MM`
+   - Group data by Month and Product
+   - Prepare it for a stacked bar chart (total sales per category per month)
+
+2. Visual Mapping
+   - Use a stacked bar chart layout
+   - X-axis shows months, Y-axis shows total sales (starting from 0)
+   - X-axis labels should be angled for readability
+   - Use a unique color for each product category
+   - Include tooltips showing category, month, and exact sales on hover
+
+3. Rendering
+   - Add checkboxes to toggle individual product categories
+   - Add an “All Categories” checkbox to toggle all on/off
+   - When filtering, the stacking order should remain fixed (not re-ordered)
+   - Chart should update smoothly with transitions
+   - Use `viewBox` and flex layout to make the chart responsive
+   - Place the checkbox list on the right side of the chart
+   - Ensure the checkbox list is scrollable if there are too many items
+   - Prevent checkboxes from wrapping into multiple columns
+
+The final result should include an `index.html` and `main.js` file, with clearly commented code and clean structure.
+Please include explanations for key implementation decisions.
