@@ -14,6 +14,6 @@ This repository contains the source codes for the course **CSE468: Information V
 
 ## Author
 
-- Name: Doyoel Oh
+- Name: Doyeol Oh
 - Student ID: 20211187
 - Email: ohdoyoel@unist.ac.kr
