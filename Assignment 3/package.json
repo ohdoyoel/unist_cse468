@@ -1,0 +1,20 @@
+{
+  "name": "assignment2",
+  "version": "1.0.0",
+  "description": "InfoVis Course assignment 2",
+  "main": "js/index.js",
+  "scripts": {
+    "start": "nodemon js/index.js",
+    "test": "Infovis Course assingment 2"
+  },
+  "keywords": [
+    "InfoVis",
+    "BarChart"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}
