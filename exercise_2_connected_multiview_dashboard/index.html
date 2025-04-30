@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connected Multiview Dashboard</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        overflow-y: auto; /* Enable vertical scrolling */
+      }
+      #dashboard {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      #header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #h1 {
+        font-size: 20px;
+        margin: 0;
+      }
+      #reset-button {
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      #charts-row {
+        display: flex;
+        gap: 20px;
+      }
+      .chart-container {
+        flex: 1;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background: #f9f9f9;
+      }
+      #data-table {
+        border: 1px solid #ccc;
+        padding: 10px;
+        background: #fff;
+      }
+      .datatable {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .datatable th,
+      .datatable td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+        font-size: 14px;
+      }
+      .datatable th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        text-align: left;
+        position: relative;
+        padding: 8px;
+        font-size: 16px;
+      }
+      .datatable .sort-arrow {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 8px;
+      }
+      .datatable .filter-dropdown,
+      .datatable th input[type="text"] {
+        font-size: 12px;
+        width: 100%;
+        margin-top: 5px;
+        padding: 8px;
+        box-sizing: border-box;
+        text-align: left;
+      }
+      .datatable tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .datatable tr:hover {
+        background-color: #e6f7ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dashboard">
+      <div id="header">
+        <h1 id="h1">
+          Chocolate Sales Visualization - Connected Multiview Dashboard
+        </h1>
+        <button id="reset-button">Reset Filters</button>
+      </div>
+      <div id="charts-row">
+        <div id="area-chart" class="chart-container"></div>
+        <div id="bar-chart" class="chart-container"></div>
+      </div>
+      <div id="data-table" class="table-container"></div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
