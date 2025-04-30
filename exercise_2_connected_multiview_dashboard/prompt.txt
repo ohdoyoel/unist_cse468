@@ -1,0 +1,51 @@
+Create a fully functional, responsive multiview dashboard using D3.js to visualize 'Chocolate Sales' data from a CSV file. The dashboard should include a time series area chart, a stacked bar chart by product, and a filterable, paginated datatable — all of which are fully linked via coordinated interaction and shared state. The implementation should include the following:
+
+1. Data Loading & Preprocessing:
+   - Load `chocolate_sales.csv` containing columns such as: `Sales Person`, `Country`, `Product`, `Date`, `Amount`, and `Boxes Shipped`.
+   - Parse the `Date` column as JavaScript Date objects.
+   - Clean `Amount` and `Boxes Shipped` fields by removing symbols and converting them to numbers.
+
+2. Time Series Area Chart:
+   - Aggregate sales amounts by date.
+   - Use a time scale for the x-axis and a linear scale for the y-axis.
+   - Draw the area using D3’s `.area()` generator.
+   - Animate the chart to rise smoothly from the baseline when it loads.
+   - Support zooming/filtering using brush interaction (optional).
+
+3. Stacked Bar Chart:
+   - Group data by product and sum sales amounts.
+   - Create a horizontal axis with product categories and a vertical axis with sales.
+   - Animate bars growing from the bottom.
+   - On click, highlight the selected product, fade out others (opacity 0.4), and filter the area chart and table.
+   - On hover, slightly darken the bar color.
+
+4. Interactive Data Table:
+   - Render a table with all fields.
+   - Implement column-based sorting by clicking headers.
+   - Add text input filters for numeric/date fields and dropdown filters for categorical fields.
+   - Paginate the table with 10 rows per page and dynamic navigation.
+   - Highlight the row when clicked and store it as a selected data point.
+
+5. State Management & Cross-View Interaction:
+   - Create a global `appState` object with `timeRange`, `selectedProduct`, and `selectedRows`.
+   - Include methods to update each part of the state and notify all visual components.
+   - Clicking on a chart or table updates the state and refreshes all visualizations accordingly.
+   - Add a Reset button to clear all filters and restore the original data view.
+
+6. Styling and Layout:
+   - Use CSS to create a clean layout using Flexbox.
+   - Style the charts with proper spacing, axis labels, and visual hierarchy.
+   - Style the table with hover effects, alternating row colors, and consistent input fields.
+   - Ensure all components are responsive and adjust to screen width.
+
+7. Code Structure:
+   - Use modular functions like `createAreaChart(data)`, `createBarChart(data)`, and `createDataTable(data)`.
+   - Provide matching `updateAreaChart(state)`, `updateBarChart(state)`, and `updateDataTable(state)` functions.
+   - Comment your code clearly to explain how shared state flows through components and how D3 selections are handled.
+
+8. File Structure:
+   - Implement everything in a single `index.html` and `main.js` file.
+   - Use D3.js v7 via CDN.
+   - No external dependencies besides D3.
+
+The result should be a complete, interactive, and visually intuitive dashboard that allows users to explore sales patterns across time, product categories, and individual records.
