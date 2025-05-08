@@ -43,9 +43,10 @@ filteredData = data.filter((d) => d.date && d.temperature);
 console.log(filteredData);
 
 // • You should parse the string in date value into the Date object. (3pts)
-filteredData = filteredData.map((d) => {
-  return { date: d3.timeParse("%Y-%m-%d")(d.date), temperature: d.temperature };
-});
+filteredData = filteredData.map((d) => ({
+  ...d,
+  date: d3.timeParse("%Y-%m-%d")(d.date),
+}));
 console.log(filteredData);
 
 // • You should sort the dataset in chronological order. (2pts)
