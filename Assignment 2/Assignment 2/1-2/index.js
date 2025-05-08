@@ -39,7 +39,7 @@ Your Code Starts here!!
 console.log(data);
 
 // • You should delete data that contain Null values. (3pts)
-filteredData = data.filter((d) => d.date != null && d.temperature != null);
+filteredData = data.filter((d) => d.date && d.temperature);
 console.log(filteredData);
 
 // • You should parse the string in date value into the Date object. (3pts)
