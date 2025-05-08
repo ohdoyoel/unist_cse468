@@ -172,7 +172,7 @@ function drawBarChart(data) {
     .attr("class", "fully")
     .attr("x", (d) => xScale(d._rate_people_fully_vaccinated) - 5)
     .attr("y", (d) => yScale(d.location) + yScale.bandwidth() / 2 + 3)
-    .text((d) => `${d._rate_people_fully_vaccinated.toFixed(1)}%`)
+    .text((d) => `${d._rate_people_fully_vaccinated.toFixed()}%`)
     .style("font-size", "10px")
     .style("text-anchor", "end");
 
@@ -183,7 +183,7 @@ function drawBarChart(data) {
     .attr("class", "partially")
     .attr("x", (d) => xScale(d._rate_people_vaccinated) + 5)
     .attr("y", (d) => yScale(d.location) + yScale.bandwidth() / 2 + 3)
-    .text((d) => `${d._rate_people_partially_vaccinated.toFixed(1)}%`)
+    .text((d) => `${d._rate_people_partially_vaccinated.toFixed()}%`)
     .style("font-size", "10px")
     .style("text-anchor", "start");
 
