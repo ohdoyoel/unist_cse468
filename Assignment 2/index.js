@@ -39,7 +39,7 @@ Your Code Starts here!!
 console.log(data);
 
 // • You should delete data that contain Null values. (3pts)
-filteredData = data.filter((d) => d.date && d.temperature);
+filteredData = data.filter((d) => d.date != null && d.temperature != null);
 console.log(filteredData);
 
 // • You should parse the string in date value into the Date object. (3pts)
@@ -77,49 +77,41 @@ var svg = d3
 // Set x,y axis
 var x = d3
   .scaleTime()
-  .domain(
-    d3.extent(filteredData, function (d) {
-      return d.date;
-    })
-  )
+  .domain(d3.extent(filteredData, (d) => d.date))
   .range([0, width]);
 var y = d3
   .scaleLinear()
-  .domain([
-    20,
-    d3.max(filteredData, function (d) {
-      return d.temperature;
-    }),
-  ])
+  .domain([20, d3.max(filteredData, (d) => d.temperature)])
   .range([height, 0]);
 
 // Add the X Axis
 svg
   .append("g")
   .attr("transform", "translate(0," + height + ")")
-  .call(d3.axisBottom(x))
-  .append("text")
-  .attr("text-anchor", "middle")
-  .text("Date");
+  // .append("text")
+  // .attr("text-anchor", "middle")
+  // .text("Date")
+  .transition()
+  .duration(750)
+  .call(d3.axisBottom(x));
 
 // Add the Y Axis
-svg.append("g").call(d3.axisLeft(y));
+svg.append("g").transition().duration(750).call(d3.axisLeft(y));
 
 // Draw lines
 svg
   .append("path")
   .datum(filteredData)
   .attr("fill", "none")
-  .attr("stroke", "steelblue")
-  .attr("stroke-width", 1.5)
+  .attr("stroke", "white")
   .attr(
     "d",
     d3
       .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y(d.temperature);
-      })
-  );
+      .x((d) => x(d.date))
+      .y((d) => y(d.temperature))
+  )
+  .attr("stroke-width", 1.5)
+  .transition()
+  .duration(750)
+  .attr("stroke", "steelblue");

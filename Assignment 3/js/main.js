@@ -62,9 +62,8 @@ d3.csv("data/owid-covid-data.csv")
     processedData.forEach((d) => {
       const iso = d.iso_code;
       const isExist = latestDataByCountry[iso];
-      if (!isExist || latestDataByCountry[iso].date < d.date) {
+      if (!isExist || latestDataByCountry[iso].date < d.date)
         latestDataByCountry[iso] = d;
-      }
     });
     processedData = Object.values(latestDataByCountry);
     console.log(processedData);
@@ -162,7 +161,11 @@ function drawBarChart(data) {
     .attr("y", (d) => yScale(d.data.location))
     .attr("x", (d) => xScale(d[0]))
     .attr("height", yScale.bandwidth())
-    .attr("width", (d) => xScale(d[1]) - xScale(d[0]));
+    .attr("width", (d) => xScale(d[1]) - xScale(d[0]))
+    .style("opacity", 0)
+    .transition()
+    .duration(750)
+    .style("opacity", 1);
 
   // 6. Draw the labels for bars
   svg
@@ -202,9 +205,16 @@ function drawBarChart(data) {
     .append("g")
     .attr("class", "x-axis")
     .attr("transform", `translate(0, ${height})`)
+    .transition()
+    .duration(750)
     .call(xAxis);
 
-  svg.append("g").attr("class", "y-axis").call(yAxis);
+  svg
+    .append("g")
+    .attr("class", "y-axis")
+    .transition()
+    .duration(750)
+    .call(yAxis);
 
   // Indicate the x-axis label
   svg

@@ -10,6 +10,7 @@ const stack = d3.stack().keys(["value1", "value2", "value3"]);
 
 // Apply stack layout to the data
 const stackedData = stack(data);
+console.log(stackedData);
 
 // Create scales for x and y axes
 const xScale = d3
