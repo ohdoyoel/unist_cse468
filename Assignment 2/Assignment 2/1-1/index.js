@@ -19,7 +19,6 @@ svg
   .style("fill", "#ffb4dc")
   .style("stroke", "black")
   .style("stroke-width", 8);
-
 svg
   .append("ellipse")
   .attr("cx", 320)
@@ -42,7 +41,6 @@ svg
   .style("fill", "#cf4f99")
   .style("stroke", "black")
   .style("stroke-width", 8);
-
 svg
   .append("ellipse")
   .attr("cx", 340)
@@ -72,7 +70,6 @@ svg
   .attr("rx", 6)
   .attr("ry", 20)
   .style("fill", "black");
-
 svg
   .append("ellipse")
   .attr("cx", 225)
@@ -88,7 +85,6 @@ svg
   .attr("rx", 6)
   .attr("ry", 20)
   .style("fill", "black");
-
 svg
   .append("ellipse")
   .attr("cx", 275)
@@ -108,7 +104,6 @@ svg
 // Draw Kirby's starrod from starrod.svg
 d3.xml("starrod.svg").then((starrod) => {
   let g = svg.append("g").attr("transform", "rotate(60, 250, 250)");
-
   g.append(() => starrod.documentElement)
     .attr("width", 200)
     .attr("height", 200)
