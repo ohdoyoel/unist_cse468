@@ -1,0 +1,67 @@
+# Assignment
+
+## Assignment 1 : SVG 그리기
+
+- [ ] SVG 잘 다루기 (circle, ellipse, rect, polygon, polyline, path)
+- [ ] External SVG Load 후 사용하기
+
+## Assignment 2 : Data Preprocessing 후 Line 차트 그리기
+
+- [ ] JS Array Methods (forEach, map, filter, sort, slice)에 익숙해져야 함 -> Preprocessing
+- [ ] JS Object Methods (Object.keys, Object.values, Object.entries)에 익숙해져야 함 -> Preprocessing
+- [ ] xScale, yScale에 대한 이해 필요 (scaleLinear, scaleBand, domain, range 등)
+- [ ] 어떤 원리로 x축, y축이 그려지고, 어떻게 데이터가 선으로 표현되는지 이해 필요
+- [ ] data vs datum
+
+## Assignment 3 : Data Proprocessing 후 Stacked Bar 차트 그리기
+
+- [ ] 어려운 Preprocessing에 익숙해져야 함
+
+```javascript
+// 5. Exclude all data except the latest data for each country
+let latestDataByCountry = {};
+processedData.forEach((d) => {
+  const iso = d.iso_code;
+  const isExist = latestDataByCountry[iso];
+  if (!isExist || latestDataByCountry[iso].date < d.date) {
+    latestDataByCountry[iso] = d;
+  }
+});
+processedData = Object.values(latestDataByCountry);
+console.log(processedData);
+```
+
+- [ ] xScale, yScale, cScale을 정의하고, 적용할 줄 알아야 함 (scaleBand, scaleLinear, scaleOrdinal)
+- [ ] stack() 함수의 사용법을 익히고, 데이터가 어떻게 변형되는지 이해해야 함
+
+- [ ] Stacked Bars를 그리는 방법을 익혀야 함
+
+```javascript
+// 5.  Draw Stacked bars
+const group = svg
+  .selectAll("g")
+  .data(stackedData)
+  .join("g")
+  .attr("fill", (d) => cScale(d.key));
+
+group
+  .selectAll("rect")
+  .data((d) => d)
+  .join("rect")
+  .attr("y", (d) => yScale(d.data.location))
+  .attr("x", (d) => xScale(d[0]))
+  .attr("height", yScale.bandwidth())
+  .attr("width", (d) => xScale(d[1]) - xScale(d[0]));
+```
+
+- [ ] 차트 위에 바마다 원하는 위치에 텍스트를 그릴 수 있어야 함
+
+# Exercise
+
+## Exercise 1 : 월 별 판매량 차트 그리기 with Filtering, Transition
+
+## Exercise 2 : 월 별 판매량 DashBoard 만들기 with Global State Management
+
+# Slide
+
+# Github 배포하기
